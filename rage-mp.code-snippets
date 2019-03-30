@@ -1,0 +1,345 @@
+{
+	// Server-side
+	// Checkpoint
+	"playerEnterCheckpoint": {
+		"prefix": "playerEnterCheckpoint",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerEnterCheckpoint', (player, checkpoint) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerEnterCheckpoint"
+	},
+	"playerExitCheckpoint": {
+		"prefix": "playerExitCheckpoint",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerExitCheckpoint', (player, checkpoint) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerExitCheckpoint"
+	},
+	// Colshape
+	"playerEnterColshape": {
+		"prefix": "playerEnterColshape",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerEnterColshape', (player, shape) => {",
+			"\tmp.game.graphics.notify(`${player.name} entered a colshape with id ${shape.id}.`);",
+			"});",
+			""
+		],
+		"description": "playerEnterColshape"
+	},
+	"playerExitColshape": {
+		"prefix": "playerExitColshape",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerExitColshape', (player, shape) => {",
+			"\tmp.game.graphics.notify(`${player.name} left from colshape with id ${shape.id}.`);",
+			"});",
+			""
+		],
+		"description": "playerExitColshape"
+	},
+	// Entity
+	"entityCreated": {
+		"prefix": "entityCreated",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('entityCreated', (entity) => {",
+			"\tconsole.log(`An Entity with the ID of ${entity.id} was created at ${entity.position}`);",
+			"});",
+			""
+		],
+		"description": "entityCreated"
+	},
+	"entityDestroyed": {
+		"prefix": "entityDestroyed",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('entityDestroyed', (entity) => {",
+			"\t// Do what you want",
+			"});",
+			""
+		],
+		"description": "entityDestroyed"
+	},
+	"entityModelChange": {
+		"prefix": "entityModelChange",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('entityModelChange', (entity, oldModel) => {",
+			"\t// Do what you want",
+			"});",
+			""
+		],
+		"description": "entityModelChange"
+	},
+	// Player
+	"playerChat": {
+		"prefix": "playerChat",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerChat', (player, text) => {",
+			"\tconsole.log(`${player.name} send something in chat.`);",
+			"});",
+			""
+		],
+		"description": "playerChat"
+	},
+	"playerCommand": {
+		"prefix": "playerCommand",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerCommand', (player, command) => {",
+			"\tconst args = command.split(/[ ]+/);",
+			"\tconst commandName = args.splice(0, 1)[0];",
+			"",
+			"\t// This example will write \"Hello!\" to player, who will enter command /meetme into chatbox.",
+			"\tif (commandName === 'meetme') {",
+			"\t    player.outputChatBox('Hello!');",
+			"\t}",
+			"});",
+			""
+		],
+		"description": "playerCommand"
+	},
+	"playerDamage": {
+		"prefix": "playerDamage",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerDamage', (player, healthLoss, armorLoss) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerDamage"
+	},
+	"playerDeath": {
+		"prefix": "playerDeath",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerDeath', (player, reason, killer) => {",
+			"\tconst deathName = player.name;",
+			"\tconst killerName = killer.name;",
+			"\tif (reason === 341774354) {",
+			"\t\tmp.players.broadcast(`${$0deathName} died in a chopper!`);",
+			"\t\treturn;",
+			"\t}",
+			"\tmp.players.broadcast(`${$1killerName} killed ${$0deathName}. Reason: ${$2reason}`);",
+			"});$0",
+			""
+		],
+		"description": "playerDeath"
+	},
+	"playerJoin": {
+		"prefix": "playerJoin",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerJoin', (player) => {",
+			"\tconsole.log(`[SERVER]: ${player.name} has joined the server.`);",
+			"});",
+			""
+		],
+		"description": "playerJoin"
+	},
+	"playerQuit": {
+		"prefix": "playerQuit",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerQuit', (player, exitType, reason) => {",
+			"\tlet str = player.name;",
+			"",
+			"\tif (exitType !== 'kicked') {",
+			"\t\tstr += ' quit.';",
+			"\t} else {",
+			"\t\tstr = ` kicked. Reason: ${$0reason}.`;",
+			"\t}",
+			"",
+			"\tconsole.log(str);",
+			"});",
+			""
+		],
+		"description": "playerQuit"
+	},
+	"playerReady": {
+		"prefix": "playerReady",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerReady', (player) => {",
+			"\tif (player.name !== 'George') {",
+			"\t\tplayer.kick('You\\'re not George');",
+			"\t}",
+			"});",
+			""
+		],
+		"description": "playerReady"
+	},
+	"playerSpawn": {
+		"prefix": "playerSpawn",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerSpawn', (player) => {",
+			"\tconsole.log(`${$0player.name} has spawned`);",
+			"});",
+			""
+		],
+		"description": "playerSpawn"
+	},
+	"playerWeaponChange": {
+		"prefix": "playerWeaponChange",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerWeaponChange', (player, oldWeapon, newWeapon) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerWeaponChange"
+	},
+	// Streaming
+	"playerStreamIn": {
+		"prefix": "playerStreamIn",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerStreamIn', (player, forPlayer) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerStreamIn"
+	},
+	"playerStreamOut": {
+		"prefix": "playerStreamOut",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerStreamOut', (player, forPlayer) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerStreamOut"
+	},
+	// Vehicle
+	"playerStartEnterVehicle": {
+		"prefix": "playerStartEnterVehicle",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerStartEnterVehicle', (player, vehicle, seat) => {",
+			"\tconst playerName = player.name;",
+			"\tconst vehicleID = vehicle.id;",
+			"",
+			"\tmp.players.broadcast(`${$0playerName} started to get into the car ID: ${$1vehicleID}. Seat: ${$2seat}`);",
+			"});",
+			""
+		],
+		"description": "playerStartEnterVehicle"
+	},
+	"playerEnterVehicle": {
+		"prefix": "playerEnterVehicle",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerEnterVehicle', (player, vehicle, seat) => {",
+			"\tplayer.outputChatBox(`${$0player.name} got into the car with ID: ${$1vehicle.id}. Seat: ${$2seat}`);",
+			"});",
+			""
+		],
+		"description": "playerEnterVehicle"
+	},
+	"playerStartExitVehicle": {
+		"prefix": "playerStartExitVehicle",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerStartExitVehicle', (player) => {",
+			"\tconst playerName = player.name;",
+			"\tconst vehicleID = player.vehicle.id;",
+			"\tmp.players.broadcast(`${$0playerName} started to exit the car with ID: ${$1vehicleID}`);",
+			"});",
+			""
+		],
+		"description": "playerStartExitVehicle"
+	},
+	"playerExitVehicle": {
+		"prefix": "playerExitVehicle",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerExitVehicle', (player, vehicle) => {",
+			"\tconsole.log(`${$0player.name} when out from vehicle with ID: ${$1vehicle.id}`);",
+			"});",
+			""
+		],
+		"description": "playerExitVehicle"
+	},
+	"trailerAttached": {
+		"prefix": "trailerAttached",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('trailerAttached', (vehicle, trailer) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "trailerAttached"
+	},
+	"vehicleDamage": {
+		"prefix": "vehicleDamage",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('vehicleDamage', (vehicle, bodyHealthLoss, engineHealthLoss) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "vehicleDamage"
+	},
+	"vehicleDeath": {
+		"prefix": "vehicleDeath",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('vehicleDeath', (vehicle) => {",
+			"\tvehicle.destroy();",
+			"});",
+			""
+		],
+		"description": "vehicleDeath"
+	},
+	"vehicleHornToggle": {
+		"prefix": "vehicleHornToggle",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('vehicleHornToggle', (vehicle, toggle) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "vehicleHornToggle"
+	},
+	"vehicleSirenToggle": {
+		"prefix": "vehicleSirenToggle",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('vehicleSirenToggle', (vehicle, toggle) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "vehicleSirenToggle"
+	},
+	// Waypoint
+	"playerReachWaypoint": {
+		"prefix": "playerReachWaypoint",
+		"scope": "javascript",
+		"body": [
+			"mp.events.add('playerReachWaypoint', (player) => {",
+			"\t// Do what you want.",
+			"});",
+			""
+		],
+		"description": "playerReachWaypoint"
+	},
+}
