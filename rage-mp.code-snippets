@@ -1,5 +1,5 @@
 {
-	// Server-side
+// Server-side events
 	// Checkpoint
 	"playerEnterCheckpoint": {
 		"prefix": "playerEnterCheckpoint",
@@ -341,5 +341,289 @@
 			""
 		],
 		"description": "playerReachWaypoint"
+	},
+// Server-side functions
+	// Global
+		// Functions
+	"Globals::joaat": {
+		"prefix": "Globals::joaat",
+		"scope": "javascript",
+		"body": [
+			"mp.joaat('bati');"
+		],
+		"description": "This function generates hashes/arrays of hashes (hash is integer) using strings/arrays of strings. Those hashes could be used to set entity model."
+	},
+		// Properties
+	"mp.players": {
+		"prefix": "mp.players",
+		"scope": "javascript",
+		"body": [
+			"mp.players"
+		],
+		"description": "Player pool"
+	},
+	"mp.vehicles": {
+		"prefix": "mp.vehicles",
+		"scope": "javascript",
+		"body": [
+			"mp.vehicles"
+		],
+		"description": "mp.vehicles"
+	},
+	"mp.objects": {
+		"prefix": "mp.objects",
+		"scope": "javascript",
+		"body": [
+			"mp.objects"
+		],
+		"description": "mp.objects"
+	},
+	"mp.pickups": {
+		"prefix": "mp.pickups",
+		"scope": "javascript",
+		"body": [
+			"mp.pickups"
+		],
+		"description": "mp.pickups"
+	},
+	"mp.blips": {
+		"prefix": "mp.blips",
+		"scope": "javascript",
+		"body": [
+			"mp.blips"
+		],
+		"description": "mp.blips"
+	},
+	"mp.markers": {
+		"prefix": "mp.markers",
+		"scope": "javascript",
+		"body": [
+			"mp.markers"
+		],
+		"description": "mp.markers"
+	},
+	"mp.checkpoints": {
+		"prefix": "mp.checkpoints",
+		"scope": "javascript",
+		"body": [
+			"mp.checkpoints"
+		],
+		"description": "mp.checkpoints"
+	},
+	"mp.events": {
+		"prefix": "mp.events",
+		"scope": "javascript",
+		"body": [
+			"mp.events"
+		],
+		"description": "mp.events"
+	},
+	"mp.config": {
+		"prefix": "mp.config",
+		"scope": "javascript",
+		"body": [
+			"mp.config"
+		],
+		"description": "mp.config"
+	},
+	"mp.world": {
+		"prefix": "mp.world",
+		"scope": "javascript",
+		"body": [
+			"mp.world"
+		],
+		"description": "mp.world"
+	},
+	// Blip
+		// Functions
+	"mp.blips.new": {
+		"prefix": "mp.blips.new",
+		"scope": "javascript",
+		"body": [
+			"mp.blips.new(sprite, position,",
+			"{",
+			"\tname: name,",
+			"\tscale: scale,",
+			"\tcolor: color,",
+			"\talpha: alpha,",
+			"\tdrawDistance: drawDistance,",
+			"\tshortRange: shortRange,",
+			"\trotation: rotation,",
+			"\tdimension: dimension,",
+			"});",
+			""
+		],
+		"description": "Creates a blip to display on your map & minimap."
+	},
+	".routeFor": {
+		"prefix": ".routeFor",
+		"scope": "javascript",
+		"body": [
+			".routeFor(player, color, scale);"
+		],
+		"description": "Creates a route to the blip from the player's location."
+	},
+	".unrouteFor": {
+		"prefix": ".unrouteFor",
+		"scope": "javascript",
+		"body": [
+			".unrouteFor(player);"
+		],
+		"description": "This function used for remove route to blip for player."
+	},
+	// Entity
+	"Entity::destroy": {
+		"prefix": "Entity::destroy",
+		"scope": "javascript",
+		"body": [
+			"entity.destroy();"
+		],
+		"description": "This function is used to destroy a created entity."
+	},
+	"Entity::dist": {
+		"prefix": "Entity::dist",
+		"scope": "javascript",
+		"body": [
+			"entity.dist(position);"
+		],
+		"description": "Gets the distance between two entities."
+	},
+	"Entity::distSquared": {
+		"prefix": "Entity::distSquared",
+		"scope": "javascript",
+		"body": [
+			"entity.distSquared(entity2.position);"
+		],
+		"description": "Function that gets the squared distance between two entities."
+	},
+	"Entity::getVariable": {
+		"prefix": "Entity::getVariable",
+		"scope": "javascript",
+		"body": [
+			"entity.getVariable('variableName');"
+		],
+		"description": "Retrieves the custom data from the entity."
+	},
+	"Entity::setVariable": {
+		"prefix": "Entity::setVariable",
+		"scope": "javascript",
+		"body": [
+			"entity.setVariable(name, value);"
+		],
+		"description": "Set custom data to an entity."
+	},
+	// Checkpoint
+	"mp.checkpoints.new": {
+		"prefix": "mp.checkpoints.new",
+		"scope": "javascript",
+		"body": [
+			"mp.checkpoints.new(type, Vector3, radius,",
+			"{",
+			"\tdirection: Vector3,",
+			"\tcolor: [R, G, B, A],",
+			"\tvisible: Boolean,",
+			"\tdimension: Number,",
+			"\tshortRange: shortRange,",
+			"\trotation: rotation,",
+			"\tdimension: dimension,",
+			"});",
+			""
+		],
+		"description": "Creates a Checkpoint."
+	},
+	// Colshape pool
+	"mp.colshapes.newCircle": {
+		"prefix": "mp.colshapes.newCircle",
+		"scope": "javascript",
+		"body": [
+			"mp.colshapes.newCircle(x, y, radius, dimension);",
+			""
+		],
+		"description": "Create a ColShape of circle in the 2D plane."
+	},
+	"mp.colshapes.newCuboid": {
+		"prefix": "mp.colshapes.newCuboid",
+		"scope": "javascript",
+		"body": [
+			"mp.colshapes.newCuboid(x, y, z, width, depth, height);",
+			""
+		],
+		"description": "Creates a cuboid ColShape in 3D space."
+	},
+	"mp.colshapes.newRectangle": {
+		"prefix": "mp.colshapes.newRectangle",
+		"scope": "javascript",
+		"body": [
+			"mp.colshapes.newRectangle(x, y, width, height);",
+			""
+		],
+		"description": "Creates a rectangle (square) ColShape 2D plane."
+	},
+	"mp.colshapes.newSphere": {
+		"prefix": "mp.colshapes.newSphere",
+		"scope": "javascript",
+		"body": [
+			"mp.colshapes.newSphere(x, y, z, range, dimension);",
+			""
+		],
+		"description": "Creates a Sphere ColShape."
+	},
+	"mp.colshapes.newTube": {
+		"prefix": "mp.colshapes.newTube",
+		"scope": "javascript",
+		"body": [
+			"mp.colshapes.newTube(x, y, z, range, height);",
+			""
+		],
+		"description": "Creates a Colshape into the shape of a Tube."
+	},
+	// Label
+	"Label::Label": {
+		"prefix": "mp.labels.new",
+		"scope": "javascript",
+		"body": [
+			"mp.labels.new(text, position,",
+			"{",
+			"\tlos: los,",
+			"\tfont: font,",
+			"\tdrawDistance: drawDistance,",	
+			"\tcolor: color,",
+			"\tdimension: dimension",
+			"});",
+			""
+		],
+		"description": "Creates a label in your world."
+	},
+	// Marker
+	"Marker::Marker": {
+		"prefix": "mp.markers.new",
+		"scope": "javascript",
+		"body": [
+			"mp.markers.new(type, position, scale,",
+			"{",
+			"\tdirection: direction,",
+			"\trotation: rotation,",
+			"\tcolor: color,",
+			"\tvisible: visible,",
+			"\tdimension: dimension",
+			"});",
+			""
+		],
+		"description": "Create a marker."
+	},
+	// Object
+	"Object::Object": {
+		"prefix": "mp.objects.new",
+		"scope": "javascript",
+		"body": [
+			"mp.objects.new(model, position,",
+			"{",
+			"\trotation: rotation,",
+			"\talpha: alpha,",
+			"\tdimension: dimension",
+			"});",
+			""
+		],
+		"description": "Creates a new Object."
 	},
 }
